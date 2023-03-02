@@ -13,31 +13,29 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
+import controller.window_listener;
 
-import controller.window_listener;  
-
-public class chart_panel extends JPanel {  
-    private static final long serialVersionUID = 1L;  
+public class chart_panel extends JPanel {
+    private static final long serialVersionUID = 1L;
     private view_ver2 c;
 
-    public chart_panel(view_ver2 c) {  
+    public chart_panel(view_ver2 c) {
         this.c = c;
 
-        DefaultPieDataset<String> dataset = createDataset();  
+        DefaultPieDataset<String> dataset = createDataset();
         setSize(20, 40);
 
 
-        //Create chart  
+        //Create chart
         JFreeChart chart= ChartFactory.createPieChart("Spending rate", dataset, true, true, true);
         setLayout(new GridLayout(0, 1, 0, 0));
 
         ChartPanel panel=new ChartPanel(chart); panel.setLayout(new GridLayout(1, 0));
         add(panel);
-    }  
-    
-    private DefaultPieDataset<String> createDataset() {  
-        DefaultPieDataset<String> dataset = new DefaultPieDataset<>();  
+    }
+
+    private DefaultPieDataset<String> createDataset() {
+        DefaultPieDataset<String> dataset = new DefaultPieDataset<>();
         ArrayList<String[]> lst = lst();
         System.out.println(lst);
         for (int i = 0; i < lst.size(); i++) {
@@ -45,8 +43,8 @@ public class chart_panel extends JPanel {
         }
 
 
-        return dataset;  
-    }  
+        return dataset;
+    }
 
     public ArrayList<String[]> lst () {
         ArrayList<String[]> lst = new ArrayList<>();
